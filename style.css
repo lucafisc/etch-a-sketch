@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#grid-container {
+display: grid;
+width: 500px;
+height: 500px;
+}
+
+.cell {
+    background-color: hsla(0, 0%, 100%, 1);
+    width: auto;
+    height: auto;
+    /* border: 0.25px solid black; */
+}
+
+.painted {
+    background-color: hsla(0, 0%, 100%, 1);
+}
+
+body {
+    background-color: rgb(242, 242, 242);
+}
+
+.container {
+    margin: 0 auto;
+    padding-top: 100px;
+    display: flex;
+    width: 550px;  
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+}
+
+.card {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    border: solid 1px;
+justify-content: center;
+align-items: center;}
+
+.card:hover {
+    cursor: pointer
+}
+
+
+
+.slider {
+    rotation-point: 50% 50%;
+
+    rotate: 90deg;
+}
