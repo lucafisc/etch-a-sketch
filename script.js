@@ -1,3 +1,8 @@
+// mudar grid so quando solta o cursor
+// preview da cor na tela
+// arrumar o clique
+//
+
 document.onload = createGrid(16);
 changeGrid();
 let trigger;
@@ -12,19 +17,10 @@ function createGrid(numBox) {
   totalBox = numBox * numBox;
   deleteGrid(container);
   let cells = document.getElementsByClassName("cell");
-showGridLines(cells);
   paintCell();
 }
 
-async function showGridLines(cells) {
-    for (const cell of cells) {
-        cell.style.border = "0.25px dashed rgba(0,0,0,0.33)";
-       setTimeout(function(){
-        cell.style.border = "0px";
-},1000);
 
-    }
-}
 function deleteGrid(container) {
   while (container.firstChild) {
     container.removeChild(container.lastChild);
@@ -53,6 +49,22 @@ function paintCell() {
   let cells = document.getElementsByClassName("cell");
   for (const cell of cells) {
     let i = 100;
+     
+    
+    cell.addEventListener("click", () => {
+       
+          if (currentMode === "black") {
+            i = paintBlack(i, cell);
+          } else if (currentMode === "rainbow") {
+            j = paintRainbow(j, cell);
+          } else if (currentMode === "eraser") {
+            eraser(cell);
+          }
+          else if (currentMode === "color-picker") {
+              pickColor(cell);
+          }
+        
+      });
 
     cell.addEventListener("mouseover", () => {
       if (trigger) {
@@ -118,13 +130,12 @@ colorPicker.addEventListener("click", () => {
   });
 gridBtn.addEventListener("click", () => {
     let cells = document.getElementsByClassName("cell");
-
     toggleGrid(cells);
 });
  function toggleGrid(cells) {
 if (gridOff) {
     for (const cell of cells) {
-        cell.style.border = "0.25px dashed rgba(0,0,0,0.33)";
+        cell.style.border = "0.25px solid rgba(0,0,0,0.33)";
     }
     gridOff = false;
 }

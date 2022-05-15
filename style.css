@@ -8,13 +8,14 @@
 display: grid;
 width: 500px;
 height: 500px;
+border: 0.25px solid black;
 }
 
 .cell {
     background-color: hsla(0, 0%, 100%, 1);
     width: auto;
     height: auto;
-    /* border: 0.25px solid black; */
+    /*  */
 }
 
 .painted {
